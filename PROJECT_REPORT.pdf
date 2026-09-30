@@ -1,0 +1,795 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+2 0 obj
+<< /Length 2589 >>
+stream
+BT
+/F1 10 Tf
+50 750 Td
+14 TL
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 12 Tf
+(CHURNGUARD AI) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 12 Tf
+(CUSTOMER CHURN PREDICTION AND RETENTION RECOMMENDATION SYSTEM) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 12 Tf
+(1. EXECUTIVE SUMMARY) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+(Subscription businesses lose revenue when customers leave without warning. This project builds an) Tj
+0 -14 Td
+/F1 10 Tf
+(early-warning churn system that predicts customer churn risk, explains the main risk drivers, and) Tj
+0 -14 Td
+/F1 10 Tf
+(recommends a practical retention action for each customer.) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+(The solution combines synthetic CRM data generation, exploratory analysis, feature engineering,) Tj
+0 -14 Td
+/F1 10 Tf
+(supervised machine learning, model evaluation, customer-level reason codes, retention) Tj
+0 -14 Td
+/F1 10 Tf
+(recommendations, an API, and a Streamlit dashboard.) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 12 Tf
+(2. BUSINESS PROBLEM) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+(Customer Success teams need to answer three questions:) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+(1. Which customers are most likely to churn-) Tj
+0 -14 Td
+/F1 10 Tf
+(2. Why is each customer at risk-) Tj
+0 -14 Td
+/F1 10 Tf
+(3. Which retention intervention should be offered-) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+(The project treats churn prediction as a ranking and prioritization problem. A probability score) Tj
+0 -14 Td
+/F1 10 Tf
+(helps teams focus limited outreach capacity on customers with high churn risk and high revenue) Tj
+0 -14 Td
+/F1 10 Tf
+(exposure.) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 12 Tf
+(3. DATASET) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+(The notebook generates 20,000 synthetic customers with the following CRM fields:) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+(- Customer identity and signup date) Tj
+0 -14 Td
+/F1 10 Tf
+(- Tenure, plan, contract, and payment method) Tj
+0 -14 Td
+/F1 10 Tf
+(- Monthly and cumulative charges) Tj
+0 -14 Td
+/F1 10 Tf
+(- Auto-pay and payment failures) Tj
+0 -14 Td
+/F1 10 Tf
+(- Support tickets and resolution time) Tj
+0 -14 Td
+/F1 10 Tf
+(- Satisfaction and product engagement) Tj
+0 -14 Td
+/F1 10 Tf
+(- Login recency and usage behavior) Tj
+0 -14 Td
+/F1 10 Tf
+(- Discounts, price increases, and referrals) Tj
+0 -14 Td
+ET
+endstream
+endobj
+3 0 obj
+<< /Length 2210 >>
+stream
+BT
+/F1 10 Tf
+50 750 Td
+14 TL
+/F1 10 Tf
+(- Binary churn target) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+(The generated data includes missing values, billing outliers, moderate class imbalance, and) Tj
+0 -14 Td
+/F1 10 Tf
+(seasonal churn variation near billing-cycle boundaries. The expected churn rate is approximately) Tj
+0 -14 Td
+/F1 10 Tf
+(15% to 25%.) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 12 Tf
+(4. ANALYTICAL APPROACH) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 12 Tf
+(EXPLORATORY DATA ANALYSIS) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+(The notebook examines:) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+(- Churn class balance) Tj
+0 -14 Td
+/F1 10 Tf
+(- Missing values) Tj
+0 -14 Td
+/F1 10 Tf
+(- Churn by contract type) Tj
+0 -14 Td
+/F1 10 Tf
+(- Churn by plan) Tj
+0 -14 Td
+/F1 10 Tf
+(- Churn by payment method) Tj
+0 -14 Td
+/F1 10 Tf
+(- Customer support and engagement patterns) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 12 Tf
+(FEATURE ENGINEERING) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+(Business-oriented variables are created:) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+(- `tenure_bucket`) Tj
+0 -14 Td
+/F1 10 Tf
+(- `charges_per_month`) Tj
+0 -14 Td
+/F1 10 Tf
+(- `usage_trend`) Tj
+0 -14 Td
+/F1 10 Tf
+(- `engagement_score`) Tj
+0 -14 Td
+/F1 10 Tf
+(- `support_load`) Tj
+0 -14 Td
+/F1 10 Tf
+(- `payment_reliability`) Tj
+0 -14 Td
+/F1 10 Tf
+(- `recency_score`) Tj
+0 -14 Td
+/F1 10 Tf
+(- `loyalty_score`) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+(These features make the model easier to interpret and connect predictions to customer-success) Tj
+0 -14 Td
+/F1 10 Tf
+(actions.) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 12 Tf
+(PREPROCESSING) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+(Numeric variables are median-imputed and standardized. Categorical variables are most-frequent-) Tj
+0 -14 Td
+/F1 10 Tf
+(imputed and one-hot encoded. The preprocessing is implemented inside a scikit-learn pipeline to) Tj
+0 -14 Td
+/F1 10 Tf
+(avoid training-serving inconsistencies.) Tj
+0 -14 Td
+ET
+endstream
+endobj
+4 0 obj
+<< /Length 2262 >>
+stream
+BT
+/F1 10 Tf
+50 750 Td
+14 TL
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 12 Tf
+(MODELS) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+(The notebook trains and compares:) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+(- Logistic Regression with balanced class weights) Tj
+0 -14 Td
+/F1 10 Tf
+(- Random Forest with balanced class weights) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+(The production project also supports optional XGBoost and LightGBM models with a scikit-learn) Tj
+0 -14 Td
+/F1 10 Tf
+(fallback.) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+(Stratified cross-validation is used to preserve the churn ratio in each fold. ROC-AUC is the main) Tj
+0 -14 Td
+/F1 10 Tf
+(ranking metric, while recall is monitored because failing to identify a likely churner can be) Tj
+0 -14 Td
+/F1 10 Tf
+(expensive.) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 12 Tf
+(5. EVALUATION) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+(The notebook reports:) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+(- Accuracy) Tj
+0 -14 Td
+/F1 10 Tf
+(- Precision) Tj
+0 -14 Td
+/F1 10 Tf
+(- Recall) Tj
+0 -14 Td
+/F1 10 Tf
+(- F1-score) Tj
+0 -14 Td
+/F1 12 Tf
+(- ROC-AUC) Tj
+0 -14 Td
+/F1 12 Tf
+(- PR-AUC) Tj
+0 -14 Td
+/F1 10 Tf
+(- Classification report) Tj
+0 -14 Td
+/F1 10 Tf
+(- Confusion matrix) Tj
+0 -14 Td
+/F1 10 Tf
+(- ROC curve) Tj
+0 -14 Td
+/F1 10 Tf
+(- Precision-recall curve) Tj
+0 -14 Td
+/F1 10 Tf
+(- Decile analysis) Tj
+0 -14 Td
+/F1 10 Tf
+(- Lift chart) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+(Decile analysis is especially useful for operations. It shows whether the highest-ranked 10% of) Tj
+0 -14 Td
+/F1 10 Tf
+(customers contains a substantially higher churn concentration than the overall customer) Tj
+0 -14 Td
+/F1 10 Tf
+(population.) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 12 Tf
+(6. EXPLAINABILITY) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+(Logistic-regression coefficients are converted into directional reason codes. Positive) Tj
+0 -14 Td
+/F1 10 Tf
+(contributions indicate increased churn likelihood; negative contributions indicate reduced churn) Tj
+0 -14 Td
+/F1 10 Tf
+(likelihood.) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+ET
+endstream
+endobj
+5 0 obj
+<< /Length 2552 >>
+stream
+BT
+/F1 10 Tf
+50 750 Td
+14 TL
+/F1 10 Tf
+(Example churn drivers include:) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+(- Monthly contract) Tj
+0 -14 Td
+/F1 10 Tf
+(- Long time since last login) Tj
+0 -14 Td
+/F1 10 Tf
+(- Low satisfaction) Tj
+0 -14 Td
+/F1 10 Tf
+(- High support burden) Tj
+0 -14 Td
+/F1 10 Tf
+(- Payment failures) Tj
+0 -14 Td
+/F1 10 Tf
+(- Recent price increase) Tj
+0 -14 Td
+/F1 10 Tf
+(- Low feature usage) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+(The production application also includes SHAP-compatible explanations for tree-based models, with) Tj
+0 -14 Td
+/F1 10 Tf
+(a safe fallback when SHAP is unavailable.) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 12 Tf
+(7. RETENTION RECOMMENDATION ENGINE) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+(The recommendation logic maps risk and customer profile to an intervention:) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+(- Low risk: product education and nurture) Tj
+0 -14 Td
+/F1 10 Tf
+(- Medium risk: limited-time discount and plan review) Tj
+0 -14 Td
+/F1 10 Tf
+(- High risk: proactive outreach and loyalty discount) Tj
+0 -14 Td
+/F1 10 Tf
+(- Low satisfaction or high ticket volume: priority support callback) Tj
+0 -14 Td
+/F1 10 Tf
+(- Monthly contract: discounted annual-plan migration) Tj
+0 -14 Td
+/F1 10 Tf
+(- Payment failures: payment-method assistance) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+(The recommendation is intended to support a human Customer Success decision rather than replace) Tj
+0 -14 Td
+/F1 10 Tf
+(it.) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 12 Tf
+(8. BUSINESS VALUE AND ROI) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+(The notebook estimates campaign economics by:) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+(1. Selecting the highest-risk 10% of customers.) Tj
+0 -14 Td
+/F1 10 Tf
+(2. Estimating expected churners from predicted probabilities.) Tj
+0 -14 Td
+/F1 10 Tf
+(3. Applying a configurable retention success rate.) Tj
+0 -14 Td
+/F1 10 Tf
+(4. Estimating revenue saved over six months.) Tj
+0 -14 Td
+/F1 10 Tf
+(5. Subtracting campaign cost.) Tj
+0 -14 Td
+/F1 10 Tf
+(6. Calculating net value and ROI multiple.) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+(The assumptions are explicit and should be replaced with historical campaign conversion and offer-) Tj
+0 -14 Td
+/F1 10 Tf
+(cost data in production.) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 12 Tf
+(9. APPLICATION ARCHITECTURE) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+ET
+endstream
+endobj
+6 0 obj
+<< /Length 2232 >>
+stream
+BT
+/F1 10 Tf
+50 750 Td
+14 TL
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+(The project includes:) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+(- Data generation module) Tj
+0 -14 Td
+/F1 10 Tf
+(- Feature engineering module) Tj
+0 -14 Td
+/F1 10 Tf
+(- Preprocessing module) Tj
+0 -14 Td
+/F1 10 Tf
+(- Model training and evaluation) Tj
+0 -14 Td
+/F1 10 Tf
+(- Explainability module) Tj
+0 -14 Td
+/F1 10 Tf
+(- Retention recommendation engine) Tj
+0 -14 Td
+/F1 10 Tf
+(- FastAPI prediction endpoint) Tj
+0 -14 Td
+/F1 10 Tf
+(- Streamlit early-warning dashboard) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+(FastAPI endpoints:) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+(- `GET /health`) Tj
+0 -14 Td
+/F1 10 Tf
+(- `POST /predict`) Tj
+0 -14 Td
+/F1 10 Tf
+(- `GET /docs`) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+(The Streamlit dashboard includes Overview, Customer Scoring, Retention, Explainability, and Model) Tj
+0 -14 Td
+/F1 10 Tf
+(Performance sections.) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 12 Tf
+(10. LIMITATIONS AND FUTURE WORK) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+(- The dataset is synthetic and should be replaced or calibrated with real historical CRM) Tj
+0 -14 Td
+/F1 10 Tf
+(  data.) Tj
+0 -14 Td
+/F1 10 Tf
+(- Probability calibration should be checked before financial decisions.) Tj
+0 -14 Td
+/F1 10 Tf
+(- Retention offers should be evaluated with controlled experiments.) Tj
+0 -14 Td
+/F1 10 Tf
+(- Fairness and segment-level performance should be monitored.) Tj
+0 -14 Td
+/F1 10 Tf
+(- Data drift and campaign feedback should be tracked over time.) Tj
+0 -14 Td
+/F1 10 Tf
+(- A causal uplift model could identify customers who are persuadable, not only customers who) Tj
+0 -14 Td
+/F1 10 Tf
+(  are likely to churn.) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 12 Tf
+(11. CONCLUSION) Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+() Tj
+0 -14 Td
+/F1 10 Tf
+(This project demonstrates a complete, business-oriented machine-learning workflow. It does not) Tj
+0 -14 Td
+/F1 10 Tf
+(stop at a churn probability: it connects risk scoring to explanations, prioritized alerts,) Tj
+0 -14 Td
+/F1 10 Tf
+(retention actions, and measurable revenue impact.) Tj
+0 -14 Td
+ET
+endstream
+endobj
+7 0 obj
+<< /Type /Pages /Kids [8 0 R 9 0 R 10 0 R 11 0 R 12 0 R] /Count 5 >>
+endobj
+8 0 obj
+<< /Type /Page /Parent 7 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R >> >> /Contents 2 0 R >>
+endobj
+9 0 obj
+<< /Type /Page /Parent 7 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R >> >> /Contents 3 0 R >>
+endobj
+10 0 obj
+<< /Type /Page /Parent 7 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R >> >> /Contents 4 0 R >>
+endobj
+11 0 obj
+<< /Type /Page /Parent 7 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R >> >> /Contents 5 0 R >>
+endobj
+12 0 obj
+<< /Type /Page /Parent 7 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 1 0 R >> >> /Contents 6 0 R >>
+endobj
+13 0 obj
+<< /Type /Catalog /Pages 7 0 R >>
+endobj
+xref
+0 14
+0000000000 65535 f 
+0000000009 00000 n 
+0000000079 00000 n 
+0000002720 00000 n 
+0000004982 00000 n 
+0000007296 00000 n 
+0000009900 00000 n 
+0000012184 00000 n 
+0000012268 00000 n 
+0000012394 00000 n 
+0000012520 00000 n 
+0000012647 00000 n 
+0000012774 00000 n 
+0000012901 00000 n 
+trailer
+<< /Size 14 /Root 13 0 R >>
+startxref
+12951
+%%EOF
